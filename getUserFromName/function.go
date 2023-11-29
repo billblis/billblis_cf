@@ -10,10 +10,10 @@ import (
 )
 
 func init() {
-	functions.HTTP("GetUserFromName", TrensentimenGetUserFromName)
+	functions.HTTP("GetUserFromName", GetUserFromName)
 }
 
-func TrensentimenGetUserFromName(w http.ResponseWriter, r *http.Request) {
+func GetUserFromName(w http.ResponseWriter, r *http.Request) {
 	// Set CORS headers for the preflight request
 	if r.Method == http.MethodOptions {
 		w.Header().Set("Access-Control-Allow-Origin", "https://billblis.github.io")
