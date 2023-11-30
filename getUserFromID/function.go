@@ -25,6 +25,6 @@ func GetUserFromID(w http.ResponseWriter, r *http.Request) {
 	}
 	// Set CORS headers for the main request.
 	w.Header().Set("Access-Control-Allow-Origin", "https://billblis.github.io")
-	fmt.Fprintf(w, module.GCFHandlerGetUserFromID("PASETOPUBLICKEY", "MONGOSTRING", "billblis", "user", r))
+	fmt.Fprintf(w, module.GCFGetUserFromID("PASETOPUBLICKEY", "MONGOSTRING", "billblis", "user", r))
 
 }
