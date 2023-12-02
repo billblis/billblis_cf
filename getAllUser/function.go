@@ -1,4 +1,4 @@
-package cloudfunction_todo
+package getAllUser
 
 import (
 	"fmt"
