@@ -18,13 +18,13 @@ func GetUserFromUsername(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
 		w.Header().Set("Access-Control-Allow-Origin", "https://billblis.my.id")
 		w.Header().Set("Access-Control-Allow-Methods", "GET")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type,Authorization,Token")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		w.Header().Set("Access-Control-Max-Age", "3600")
 		w.WriteHeader(http.StatusNoContent)
 		return
 	}
 	// Set CORS headers for the main request.
 	w.Header().Set("Access-Control-Allow-Origin", "https://billblis.my.id")
-	fmt.Fprintf(w, module.GCFHandlerGetUserFromUsername("PASETOPUBLICKEY", "MONGOSTRING", "billblis", "user", r))
+	fmt.Fprintf(w, module.GCFHandlerGetUserFromUsername("MONGOSTRING", "billblis", "user", r))
 
 }
