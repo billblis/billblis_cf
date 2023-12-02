@@ -1,4 +1,4 @@
-package register
+package cloudfunction_todo
 
 import (
 	"fmt"
@@ -10,21 +10,19 @@ import (
 )
 
 func init() {
-	functions.HTTP("register", BillblisRegister)
+	functions.HTTP("GetAllUser", GetAllUser)
 }
 
-func BillblisRegister(w http.ResponseWriter, r *http.Request) {
+func GetAllUser(w http.ResponseWriter, r *http.Request) {
 	// Set CORS headers for the preflight request
 	if r.Method == http.MethodOptions {
 		w.Header().Set("Access-Control-Allow-Origin", "https://billblis.my.id")
-		w.Header().Set("Access-Control-Allow-Methods", "POST")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type,Authorization,Token")
+		w.Header().Set("Access-Control-Allow-Methods", "GET")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		w.Header().Set("Access-Control-Max-Age", "3600")
 		w.WriteHeader(http.StatusNoContent)
 		return
 	}
-	// Set CORS headers for the main request.
 	w.Header().Set("Access-Control-Allow-Origin", "https://billblis.my.id")
-	fmt.Fprintf(w, module.GCFHandlerSignup("MONGOSTRING", "billblis", "user", r))
-
+	fmt.Fprintf(w, module.GCFHandlerGetAllUser("MONGOSTRING", "billblis", "user", r))
 }

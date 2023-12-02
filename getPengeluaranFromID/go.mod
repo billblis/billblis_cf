@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/GoogleCloudPlatform/functions-framework-go v1.8.0
-	github.com/billblis/billblis_be v0.0.2
+	github.com/billblis/billblis_be v0.0.7
 )
 
 require (
